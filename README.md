@@ -1,5 +1,19 @@
 # MVC-LH
-Learning this will prepare you for the transition to Express and allow you to reuse your week 3 and 4 projects in Express applications.
+
+
+> SEPARATION OF CONCERNS
+
+One of, if not __the most__, fundamental principle of software design.
+
+"Separation of concerns" means that each file, each piece of code, has one simple and well defined purpose.  In this project you will be exploring the separation of user interface (view & handler) from core the application (controller, model, logic).  You will build a basic calculator object then use that same object to take arguments from the terminal and the browser.  The concerns are:
+* _Model_:  controles access to application data
+* _View_: displays to the user interface
+* _Controller_: executes user stories by calling model & logic
+* _Logic_: stores pure functions used to manipulate application state
+* _Handler_: reads & validates user input then calls controller methods
+
+Understanding this principle will help with testing, development scheduling, collaboration, maintenance, ... _everything_. In our experience, understanding separation of concerns is among the most important thing a new developer can master.  Far more important than learning new libraries, powerful devtools, or even being good at solving programming challenges.  
+
 
 #### Table of Contents 
 * [Prerequisite Knowledge](#prerequiste-knowledge)  
@@ -7,34 +21,28 @@ Learning this will prepare you for the transition to Express and allow you to re
 * [A Checklist](#a-checklist)  
 * [A Chart](#a-chart) 
 * [An Example](#an-example)  
+
 ____________
-### Prerequisite knowledge:
+
+## Prerequisite knowledge:
 * __Separation of concerns__ : 
   * WHY -  
-    * makes your code easier to read and debug
+    * makes your code easier to understand, extend and debug
   * HOW - 
     * by organizing your code based on what it does and where it runs
-    * by having self-contained objects 
-      * to the outside world,  methods behave like pure functions
-      * everything they need to do their job is a _property_, _method_ or _argument_ 
-    * by having the least possible interaction between objects
+    * by using objects to keep code organized 
+        * careful!  this is not object oriented programming, just organization
+    * by having the least possible interactions between objects
   * WHAT - 
     * MVC-LH architecture
-* __Dependancy Injection__ :
-  * WHY - 
-    * to reuse as much of your code as possible
-    * to use the same application in any environment with the fewest changes
-  * HOW - 
-    * swapping out different code that fits the same specs depending on where you run your project
-  * WHAT -
-    * having a different _view_ and _handler_ for each environment
-    * reusing your _model_, _controller_ and _logic_ behind different _handlers_ and _views_.
 
- [TOP](#table-of-contents)
+[TOP](#table-of-contents)
+
 ___
-### A Diagram
 
-Each shape represents an object in your program.  The arrows show which objects arer allowed to call which other objects (objects can use 'this' to call themselves). What you should notice is that there is a one-directional flow from the user event (handler) to a change in the UI (view).
+## A Diagram
+
+Each shape represents an object in your program.  The arrows show which objects are allowed to call which other objects (objects can use 'this' to call themselves). What you should notice is that there is a one-directional flow from the user event (handler) to a change in the UI (view).
 
 This is because your app is __event driven__.  It sits idle until the user prompts it to change.  After a user triggers an event, tha event is set in motion, triggering a series function calls ending in a _state change_ (new data in memory) --> 
 1. The handler recieves and parses the user's action, passing cleaned input values to the controller object.
@@ -55,8 +63,10 @@ Component Details:
 ![](./mvc-lh.png)
 
 [TOP](#table-of-contents) 
+
 ___
-### A Checklist
+
+## A Checklist
 
 Use this checklist to grade your own project.  
 If your objects do anything that is not on this list your code is probably wrong.
@@ -70,8 +80,10 @@ If your objects do anything that is not on this list your code is probably wrong
 | can call itself | can call the UI | can call M, L, V | can call itself | can call controller| 
 
 [TOP](#table-of-contents)
+
 ___
-### A Chart 
+
+## A Chart 
 
 See how this architecture makes your life easy, you only have to change the L and H to run your project in different environments.
 
@@ -82,14 +94,10 @@ See how this architecture makes your life easy, you only have to change the L an
 |   Node webapp    |   js	|   res.send	|   js	|   js	|   Express Routes	|
 
 [TOP](#table-of-contents)
-___
-### An Example
 
-[Code to Study](https://github.com/elewa-academy/mvclh-sync-async)
-
-[TOP](#table-of-contents)  
 ___  
-### Articles  
+
+## Articles  
   
 [this is about layers](http://www.edave.net/2011/03/22/a-layered-node-js-architecture-using-express/)    
 
@@ -97,8 +105,6 @@ ___
 
 
 
-
-
 ___
 ___
-### <a href="http://elewa.education/blog" target="_blank"><img src="https://user-images.githubusercontent.com/18554853/34921062-506450ae-f97d-11e7-875f-6feeb26ad72d.png" width="100" height="40"/></a>
+### <a href="http://janke-learning.org" target="_blank"><img src="https://user-images.githubusercontent.com/18554853/50098409-22575780-021c-11e9-99e1-962787adaded.png" width="40" height="40"></img> Janke Learning</a>
